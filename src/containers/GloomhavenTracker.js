@@ -4,21 +4,29 @@ import NameList from "../components/NameList";
 import { Container, Button, withStyles } from "@material-ui/core";
 
 const styles = theme => ({
-  container: {
-    display: "flex"
+  root: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
   },
-  input: {
-    textAlign: "center",
-    fontSize: 'calc(10px + 2vmin)',
+  container: {
+    display: "flex",
+  },
+  steps: {
+    fontSize: "calc(10px + 2vmin)",
+    margin: "10px 0"
   }
 });
+
+const names1 = ["Brandt", "Frank", "Shahmeen", "Alina", "Spencer", "James"];
+const names2 = ["Spencer", "James", "Brandt", "Frank", "Shahmeen", "Alina"];
 
 class GloomhavenTracker extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      names1: ["Brandt", "Frank", "Shahmeen", "Alina", "Spencer", "James"],
-      names2: ["Spencer", "James", "Brandt", "Frank", "Shahmeen", "Alina"],
+      names1: names1,
+      names2: names2,
       step: 0
     };
   }
@@ -42,11 +50,11 @@ class GloomhavenTracker extends Component {
     let names1 = this.state.names1.slice();
     let names2 = this.state.names2.slice();
 
-    if (step % 6 === 0) names1 = this.getNext(names1);
-    if (names1 === names2) names1 = this.getNext(names1);
-
     names1 = this.getNext(names1);
     names2 = this.getNext(names2);
+
+    if (step % 6 === 0) names1 = this.getNext(names1);
+    if (names1[0] === names2[0]) names1 = this.getNext(names1);
 
     this.setState({
       names1: names1,
@@ -55,15 +63,15 @@ class GloomhavenTracker extends Component {
     });
     Cookies.set("names1", names1.toString(), {
       expires: 365,
-      path: ''
+      path: ""
     });
     Cookies.set("names2", names2.toString(), {
       expires: 365,
-      path: ''
+      path: ""
     });
     Cookies.set("stepCount", step, {
       expires: 365,
-      path: ''
+      path: ""
     });
   };
 
@@ -73,16 +81,38 @@ class GloomhavenTracker extends Component {
     return names;
   };
 
+  resetState = () => {
+    this.setState({
+      names1: names1,
+      names2: names2,
+      step: 0
+    })
+    Cookies.set("names1", names1.toString(), {
+      expires: 365,
+      path: ""
+    });
+    Cookies.set("names2", names2.toString(), {
+      expires: 365,
+      path: ""
+    });
+    Cookies.set("stepCount", 0, {
+      expires: 365,
+      path: ""
+    });
+  };
+
   render() {
     const classes = this.props.classes;
     return (
-      <div className="root">
-        <p className={classes.input}>{this.state.step}</p>
+      <div className={classes.root}>
+        <Button onClick={this.resetState} className={classes.steps}>
+          {this.state.step}
+        </Button>
         <Container>
           <Button
             fullWidth
             variant="contained"
-            onClick={() => this.handleClick()}
+            onClick={this.handleClick}
           >
             next
           </Button>
