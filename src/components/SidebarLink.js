@@ -24,7 +24,7 @@ const styles = theme => ({
 
 const SidebarLink = ({ children, classes, to }) => (
   <Link className={classes.link} to={to}>
-    <ListItem button fullWidth className={{ gutters: classes.listItemGutters }}>
+    <ListItem button style={{ gutters: classes.listItemGutters }}>
       <ListItemIcon>
         <LinkIcon/>
       </ListItemIcon>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Grid, Container } from '@material-ui/core/';
-import hardtack from 'hardtack';
+import Cookies from 'js-cookie';
 import Item from '../components/Bookmark';
 import BookmarkAddButton from '../components/BookmarkAddButton';
 import items from '../static/default_bookmarks.json';
@@ -69,13 +69,14 @@ export default class ItemContainer extends Component {
 }
 
 const setBookmarkCookie = items => {
-  hardtack.set('bookmarks', items.map(item => JSON.stringify(item)), {
-    maxAge: '60*60*25*365'
+  Cookies.set('bookmarks', items.map(item => JSON.stringify(item)), {
+    expires: 365,
+    path: ''
   });
 }
 
 const getBookmarkCookie = () => {
-  const items = hardtack.get('bookmarks');
+  const items = Cookies.get('bookmarks');
   if (!items) return;
   return items.split(/,(?={)/).map(item => JSON.parse(item))
 }

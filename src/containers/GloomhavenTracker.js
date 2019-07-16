@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import hardtack from "hardtack";
+import Cookies from "js-cookie";
 import NameList from "../components/NameList";
 import { Container, Button, withStyles } from "@material-ui/core";
 
@@ -24,9 +24,9 @@ class GloomhavenTracker extends Component {
   }
 
   componentDidMount = () => {
-    let names1 = hardtack.get("names1");
-    let names2 = hardtack.get("names2");
-    const stepCount = parseInt(hardtack.get("stepCount"));
+    let names1 = Cookies.get("names1");
+    let names2 = Cookies.get("names2");
+    const stepCount = parseInt(Cookies.get("stepCount"));
     if (!names1 || !names2) return;
     names1 = names1.split(",");
     names2 = names2.split(",");
@@ -53,14 +53,17 @@ class GloomhavenTracker extends Component {
       names2: names2,
       step: step
     });
-    hardtack.set("names1", names1.toString(), {
-      maxAge: "60*60*24*365"
+    Cookies.set("names1", names1.toString(), {
+      expires: 365,
+      path: ''
     });
-    hardtack.set("names2", names2.toString(), {
-      maxAge: "60*60*24*365"
+    Cookies.set("names2", names2.toString(), {
+      expires: 365,
+      path: ''
     });
-    hardtack.set("stepCount", step, {
-      maxAge: "60*60*24*365"
+    Cookies.set("stepCount", step, {
+      expires: 365,
+      path: ''
     });
   };
 
