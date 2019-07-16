@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Cookies from "js-cookie";
-import NameList from "../components/NameList";
+import NameList from "./components/NameList";
 import { Container, Button, withStyles } from "@material-ui/core";
 
 const styles = theme => ({

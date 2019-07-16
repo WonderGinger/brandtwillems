@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Grid, Container } from '@material-ui/core/';
 import Cookies from 'js-cookie';
-import Item from '../components/Bookmark';
-import BookmarkAddButton from '../components/BookmarkAddButton';
+import Item from './components/Bookmark';
+import BookmarkAddButton from './components/BookmarkAddButton';
 import items from '../static/default_bookmarks.json';
 
 export default class ItemContainer extends Component {

@@ -1,11 +1,11 @@
 import React from 'react';
-import NewTabContainer from '../containers/NewTab';
+import Homepage from '../content/Homepage';
 import Layout from '../components/Layout';
 
 const NewTab = () => {
   return (
     <Layout>
-      <NewTabContainer/>
+      <Homepage/>
     </Layout>
   )
 }

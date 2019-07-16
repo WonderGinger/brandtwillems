@@ -1,5 +1,5 @@
 import React from 'react';
-import GloomhavenTracker from '../containers/GloomhavenTracker';
+import GloomhavenTracker from '../content/GloomhavenTracker';
 import Layout from '../components/Layout';
 
 const ght = () => {

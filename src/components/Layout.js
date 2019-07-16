@@ -79,8 +79,9 @@ const Layout = props => {
       </div>
       <div className={classes.drawerContent}>
         <List>
-          <SidebarLink to="/newtab">New Tab</SidebarLink>
+          <SidebarLink to="/homepage">Homepage</SidebarLink>
           <SidebarLink to="/ght">Gloomhaven Tracker</SidebarLink>
+          <SidebarLink to="/pokedex">Pokedex</SidebarLink>
         </List>
       </div>
     </>
