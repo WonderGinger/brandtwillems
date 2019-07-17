@@ -1,5 +1,6 @@
 import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
+import { teal } from '@material-ui/core/colors';
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -18,7 +19,7 @@ const NameList = ({ names }) => {
     <div className={classes.container}>
       {names.map((name, i) => {
         let styles = {};
-        if (i === 0) styles = { color: "red" };
+        if (i === 0) styles = { color: teal[200] };
         return (
           <p key={i} style={styles}>
             {name}

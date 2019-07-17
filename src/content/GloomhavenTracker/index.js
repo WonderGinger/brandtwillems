@@ -8,13 +8,15 @@ const styles = theme => ({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
+    color: 'white'
   },
   container: {
     display: "flex",
   },
   steps: {
     fontSize: "calc(10px + 2vmin)",
-    margin: "10px 0"
+    margin: "10px 0",
+    color: 'white'
   }
 });
 

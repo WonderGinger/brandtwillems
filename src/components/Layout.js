@@ -1,18 +1,7 @@
 import React from "react";
-import UnstyledLink from "./UnstyledLink";
-import SidebarLink from "./SidebarLink";
-import MenuIcon from "@material-ui/icons/Menu";
-import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
+import LinkDrawer from './LinkDrawer';
+import Header from './Header'
 import { makeStyles } from "@material-ui/core/styles";
-import {
-  AppBar,
-  Toolbar,
-  List,
-  Typography,
-  IconButton,
-  Hidden,
-  Drawer,
-} from "@material-ui/core";
 
 const drawerWidth = 300;
 const breakpoint = "sm";
@@ -23,24 +12,6 @@ const useStyles = makeStyles(theme => ({
     minHeight: "100vh",
     width: "100%"
   },
-  drawer: {
-    [theme.breakpoints.up(breakpoint)]: {
-      width: "drawerWidth",
-      flexShrink: 0
-    }
-  },
-  appBar: {
-    zIndex: theme.zIndex.drawer + 1
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-    [theme.breakpoints.up(breakpoint)]: {
-      display: "none"
-    }
-  },
-  drawerPaper: {
-    width: drawerWidth
-  },
   drawerHeader: {
     display: "flex",
     alignItems: "center",
@@ -48,97 +19,32 @@ const useStyles = makeStyles(theme => ({
     ...theme.mixins.toolbar,
     justifyContent: "flex-end"
   },
-  drawerContent: {
-    display: "flex",
-    flexDirection: "column",
-  },
   content: {
     flexGrow: 1,
     padding: theme.spacing(3),
     [theme.breakpoints.up(breakpoint)]: {
       marginLeft: drawerWidth,
     }
-  },
+  }
 }));
 
 const Layout = props => {
   const classes = useStyles();
-  const { container, children } = props;
+  const { children } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
 
-  const drawer = (
-    <>
-      <div className={classes.drawerHeader}>
-        <IconButton onClick={handleDrawerToggle}>
-          <ChevronLeftIcon />
-        </IconButton>
-      </div>
-      <div className={classes.drawerContent}>
-        <List>
-          <SidebarLink to="/homepage">Homepage</SidebarLink>
-          <SidebarLink to="/ght">Gloomhaven Tracker</SidebarLink>
-          <SidebarLink to="/pokedex">Pokedex</SidebarLink>
-        </List>
-      </div>
-    </>
-  );
-
   return (
     <div className={classes.root}>
 
       {/* Header */}
-      <AppBar position="fixed" className={classes.appBar}>
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="Pages"
-            edge="start"
-            onClick={handleDrawerToggle}
-            className={classes.menuButton}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h5" color="inherit">
-            <UnstyledLink to={"/"}>Brandt Willems</UnstyledLink>
-          </Typography>
-        </Toolbar>
-      </AppBar>
+      <Header onClick={handleDrawerToggle} />
 
       {/* Drawer (hidden on mobile) */}
-      <nav className={classes.drawer} aria-label="Mailbox folders">
-        <Hidden smUp implementation="css">
-          <Drawer
-            container={container}
-            variant="temporary"
-            anchor="left"
-            open={mobileOpen}
-            onClose={handleDrawerToggle}
-            classes={{
-              paper: classes.drawerPaper
-            }}
-            ModalProps={{
-              keepMounted: true // Better open performance on mobile.
-            }}
-          >
-            {drawer}
-          </Drawer>
-        </Hidden>
-        <Hidden xsDown implementation="css">
-          <Drawer
-            classes={{
-              paper: classes.drawerPaper
-            }}
-            variant="permanent"
-            open
-          >
-            {drawer}
-          </Drawer>
-        </Hidden>
-      </nav>
+      <LinkDrawer handleDrawerToggle={handleDrawerToggle} mobileOpen={mobileOpen} />
 
       {/* Page content */}
       <main className={classes.content}>
