@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Cookies from "js-cookie";
 import NameList from "./components/NameList";
-import { Container, Button, withStyles } from "@material-ui/core";
+import { Container, Button, Paper, withStyles } from "@material-ui/core";
 
 const styles = theme => ({
   root: {
@@ -118,10 +118,10 @@ class GloomhavenTracker extends Component {
           >
             next
           </Button>
-          <div className={classes.container}>
+          <Paper className={classes.container}>
             <NameList names={this.state.names1} />
             <NameList names={this.state.names2} />
-          </div>
+          </Paper>
         </Container>
       </div>
     );

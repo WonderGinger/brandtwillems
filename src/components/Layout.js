@@ -21,6 +21,7 @@ const useStyles = makeStyles(theme => ({
   },
   content: {
     flexGrow: 1,
+    backgroundColor: theme.palette.background.default,
     padding: theme.spacing(3),
     [theme.breakpoints.up(breakpoint)]: {
       marginLeft: drawerWidth,

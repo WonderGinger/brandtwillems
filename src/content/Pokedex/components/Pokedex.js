@@ -41,6 +41,7 @@ export default class Pokedex extends Component {
 
   handleSearch = event => {
     const value = event.currentTarget.value.toLowerCase().trim();
+    
     const { collection } = this.props;
 
     Cookies.set("searchString", value, {

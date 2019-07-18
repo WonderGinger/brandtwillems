@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme => ({
     zIndex: theme.zIndex.drawer + 1
   },
   toolbar: {
-    background: theme.palette.primary.main,
+    background: theme.palette.header.default,
   },
   menuButton: {
     marginRight: theme.spacing(2),

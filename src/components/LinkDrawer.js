@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up(breakpoint)]: {
       width: "drawerWidth",
       flexShrink: 0
-    }
+    },
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -25,7 +25,8 @@ const useStyles = makeStyles(theme => ({
     }
   },
   drawerPaper: {
-    width: drawerWidth
+    width: drawerWidth,
+    backgroundColor: theme.palette.primary.dark,
   },
   drawerContent: {
     display: "flex",

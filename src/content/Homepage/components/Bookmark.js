@@ -7,10 +7,10 @@ import { grey, teal } from "@material-ui/core/colors/";
 const useStyles = makeStyles(theme => ({
   root: {
     padding: theme.spacing(3, 2),
-    background: grey[800],
+    background: theme.palette.primary.main,
     color: grey[800],
     "&:hover": {
-      background: grey[700],
+      background: theme.palette.primary.light,
       color: grey[900],
     }
   },
@@ -23,7 +23,7 @@ const useStyles = makeStyles(theme => ({
   },
   deleteIcon: {
     position: 'fixed',
-    color: grey[800]
+    color: theme.palette.primary.main
   }
 }));
 
