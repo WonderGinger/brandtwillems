@@ -4,7 +4,6 @@ import Header from './Header'
 import { makeStyles } from "@material-ui/core/styles";
 
 const drawerWidth = 300;
-const breakpoint = "sm";
 const useStyles = makeStyles(theme => ({
   root: {
     display: "flex",
@@ -23,7 +22,7 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
     backgroundColor: theme.palette.background.default,
     padding: theme.spacing(3),
-    [theme.breakpoints.up(breakpoint)]: {
+    [theme.breakpoints.up(theme.breakpoints.standard)]: {
       marginLeft: drawerWidth,
     }
   }

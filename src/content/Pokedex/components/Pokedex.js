@@ -69,7 +69,7 @@ export default class Pokedex extends Component {
 
   render() {
     const { searchString, pokemonIds } = this.state;
-    const { collection, isFetched } = this.props;
+    const { collection } = this.props;
 
     const pokedex = pokemonIds.map(id => {
       const pokemon = collection[id];
@@ -84,11 +84,7 @@ export default class Pokedex extends Component {
       <Container className="page">
         <div className="top-gutter" />
         <Search onChange={this.handleSearch} value={searchString} />
-        {isFetched ? (
-          <p style={{ color: "white", fontSize: "60" }}> Loading ... </p>
-        ) : (
-          <ul className="pokedex">{pokedex}</ul>
-        )}
+        <ul className="pokedex">{pokedex}</ul>
       </Container>
     );
   }

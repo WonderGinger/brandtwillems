@@ -2,7 +2,7 @@ import React from "react";
 import Layout from '../components/Layout';
 import Pokedex from '../content/Pokedex';
 
-const pokedex = () => {
+const PokedexPage = () => {
   return (
     <Layout>
       <Pokedex />
@@ -10,4 +10,4 @@ const pokedex = () => {
   );
 };
 
-export default pokedex;
+export default PokedexPage;

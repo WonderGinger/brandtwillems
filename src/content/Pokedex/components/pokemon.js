@@ -3,6 +3,7 @@ import { Card, CardActionArea, CardMedia, CardContent, Typography } from '@mater
 import { grey, blueGrey } from '@material-ui/core/colors';
 import '../style/main.css';
 
+
 const pokemon = ({ pokemon }) => {
   return (
     <Card style={styles.card}>

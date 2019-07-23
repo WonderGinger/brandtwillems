@@ -11,14 +11,17 @@ const theme = createMuiTheme({
       contrastText: '#ffffff'
     },
     secondary: {
-      main: pink[900],
-      light: '#bc477b',
+      main: pink[500],
+      light: '#f8bbd0',
       dark: '#560027',
       contrastText: '#ffffff'
     },
     header: {
       default: blueGrey[900]
     }
+  },
+  breakpoints: {
+    standard: "lg"
   }
 })
 

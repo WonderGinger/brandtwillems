@@ -1,6 +1,5 @@
 import React from "react";
 import { ListItem, ListItemIcon, ListItemText } from "@material-ui/core";
-import LinkIcon from "@material-ui/icons/Link";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -22,15 +21,15 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const SidebarLink = ({ children, to }) => {
+const SidebarLink = ({ name, to, icon }) => {
   const classes = useStyles();
   return (
     <Link className={classes.link} to={to}>
       <ListItem button style={{ gutters: classes.listItemGutters }}>
-        <ListItemIcon>
-          <LinkIcon className={classes.icon} />
+        <ListItemIcon className={classes.icon}>
+          {icon}
         </ListItemIcon>
-        <ListItemText primary={children} />
+        <ListItemText primary={name} />
       </ListItem>
     </Link>
   );
