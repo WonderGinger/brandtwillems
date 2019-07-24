@@ -22,7 +22,7 @@ const projects = [
     image: pokedexMedia,
     to: "/pokedex",
     github:
-      "https://github.com/WonderGinger/practice-react-apps/tree/master/pokedex"
+      "https://github.com/WonderGinger/brandtwillems/tree/master/src/content/Pokedex"
   },
   {
     name: "Gloomhaven Tracker",
