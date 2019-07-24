@@ -1,14 +1,16 @@
-import React from 'react';
-import PokedexApp from './containers/Pokedex';
+import React from "react";
+import Pokedex from "./PokedexContainer";
+import { Provider } from "react-redux";
 import configureStore from './store';
-import { Provider } from 'react-redux';
 
 const store = configureStore();
 
-const Pokedex = () => (
-  <Provider store={store}>
-    <PokedexApp />
-  </Provider>
-)
+const App = () => {
+  return (
+    <Provider store={store}>
+      <Pokedex />
+    </Provider>
+  );
+};
 
-export default Pokedex
+export default App;

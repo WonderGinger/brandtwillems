@@ -5,6 +5,7 @@ import {
   Switch,
   Redirect
 } from "react-router-dom";
+import { hot } from "react-hot-loader/root";
 import IndexPage from "../pages";
 import HomePage from "../pages/homepage";
 import ProjectsPage from "../pages/projects";
@@ -19,13 +20,14 @@ const Root = () => {
         <Route exact path="/" component={IndexPage} />
         <Route path="/homepage" component={HomePage} />
         <Route path="/projects" component={ProjectsPage} />
-        <Redirect from="/newtab" to="/homepage" />
         <Route path="/ght" component={GloomhavenTrackerPage} />
         <Route path="/pokedex" component={Pokedex} />
         <Route component={NotFound} />
+
+        <Redirect from="/newtab" to="/homepage" />
       </Switch>
     </Router>
   );
 };
 
-export default Root;
+export default hot(Root);

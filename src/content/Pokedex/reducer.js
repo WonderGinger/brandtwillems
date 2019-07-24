@@ -1,20 +1,21 @@
+import { combineReducers } from "redux";
 import {
   GET_POKEMON_REQUEST,
   GET_POKEMON_SUCCESS,
-  GET_POKEMON_FAILURE,
-} from '../actions/types';
+  GET_POKEMON_FAILURE
+} from "./actions";
 
 const initialState = {
   collection: {},
   isFetched: false
-}
+};
 
-export default (state = initialState, action) => {
+const pokemonReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_POKEMON_REQUEST:
       return {
         ...state,
-        isFetched: true,
+        isFetched: true
       };
     case GET_POKEMON_SUCCESS:
       return {
@@ -30,17 +31,21 @@ export default (state = initialState, action) => {
                 id,
                 ...item
               }
-            }
+            };
           }, {})
         },
         isFetched: false
-      }
+      };
     case GET_POKEMON_FAILURE:
       return {
         ...state,
-        isFetched: false,
-      }
-    default: 
-      return state
+        isFetched: false
+      };
+    default:
+      return state;
   }
-}
+};
+
+export default combineReducers({
+  pokemonReducer
+});

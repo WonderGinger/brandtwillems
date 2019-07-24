@@ -1,7 +1,8 @@
 import { createStore, applyMiddleware, compose } from "redux";
 import thunkMiddleware from "redux-thunk";
 import { apiMiddleware } from "redux-api-middleware";
-import rootReducer from "../reducers";
+import rootReducer from "./reducer";
+
 
 export default (initialState = {}) => {
   const middlewares = [thunkMiddleware, apiMiddleware];
