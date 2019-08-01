@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Pokemon from "./Pokemon";
+import Pokemon from "./SimplePokemon";
 import PokedexSearchBar from "./PokedexSearchBar";
-import { makeStyles } from "@material-ui/core";
+import { makeStyles, Typography } from "@material-ui/core";
 
 // const ids = Array(100).fill(null).map((item, i) => i+1);
 
@@ -49,7 +49,7 @@ const Pokedex = (props) => {
       <PokedexSearchBar onChange={value => handleInputChange(value)} />
       {error && <p>{error}</p>}
       <div className={classes.gutter} />
-      {loading ? <p>Loading...</p> :
+      {loading ? <Typography className={classes.message} variant="h5">Loading...</Typography> :
       <ul className={classes.pokedexList}>
         {pokemonIds.map(id => {
           const pokemon = props.collection[id];
@@ -69,6 +69,9 @@ export default Pokedex;
 const useStyles = makeStyles(theme => ({
   gutter: {
     height: "5vh"
+  },
+  message: {
+    color: theme.palette.primary.contrastText,
   },
   pokedexList: {
     listStyle: "none",

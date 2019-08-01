@@ -22,6 +22,10 @@ const useStyles = makeStyles(theme => ({
       display: "none"
     }
   },
+  title: {
+    flex: 1,
+    fontWeight: "bold"
+  }
 }));
 
 const Header = ({ onClick }) => {
@@ -38,7 +42,7 @@ const Header = ({ onClick }) => {
         >
           <MenuIcon />
         </IconButton>
-        <Typography variant="h5" color="inherit">
+        <Typography variant="h5" className={classes.title}>
           <UnstyledLink to={"/"}>Brandt Willems</UnstyledLink>
         </Typography>
       </Toolbar>

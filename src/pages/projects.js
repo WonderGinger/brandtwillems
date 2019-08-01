@@ -5,6 +5,7 @@ import ProjectCard from "../components/ProjectCard";
 import homepageMedia from "../content/static/homepage.jpg";
 import gloomhavenMedia from "../content/static/ght.jpg";
 import pokedexMedia from "../content/static/pokedex.jpg";
+import kanbanMedia from "../content/static/kanban.jpg";
 
 const projects = [
   {
@@ -30,6 +31,13 @@ const projects = [
       "I play the board game Gloomhaven with a group of 5 friends. During the campaign, only 4 players can go on each adventure, so I made an app to automate the process of deciding who's sitting the next one out",
     image: gloomhavenMedia,
     to: "/ght",
+  },
+  {
+    name: "Kanban",
+    description: 
+      "A Kanban app example that I made to practice for interviews.",
+    image: kanbanMedia,
+    to: "/kanban",
   }
 ];
 

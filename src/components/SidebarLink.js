@@ -11,7 +11,8 @@ const useStyles = makeStyles(theme => ({
     textDecoration: "none"
   },
   icon: {
-    color: 'theme.palette.primary.contrastText'
+    color: 'theme.palette.primary.contrastText',
+    width: 24
   },
   listItemGutters: {
     ...theme.mixins.gutters({

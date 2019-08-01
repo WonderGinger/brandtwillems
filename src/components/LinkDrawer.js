@@ -3,7 +3,8 @@ import SidebarLink from "./SidebarLink";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import HomeIcon from "@material-ui/icons/Home";
 import AppsIcon from "@material-ui/icons/Apps";
-import LinkIcon from "@material-ui/icons/Link";
+import GithubIcon from "mdi-material-ui/GithubCircle";
+import LinkedInIcon from "mdi-material-ui/Linkedin";
 import { makeStyles } from "@material-ui/core/styles";
 import { Hidden, Drawer, List, IconButton } from "@material-ui/core";
 
@@ -36,6 +37,10 @@ const useStyles = makeStyles(theme => ({
     padding: "0 8px",
     ...theme.mixins.toolbar,
     justifyContent: "flex-end"
+  },
+  drawerHeaderIcons: {
+    display: "flex",
+    justifyContent: "center"
   }
 }));
 
@@ -49,16 +54,6 @@ const links = [
     name: "Projects",
     to: "/projects",
     icon: <AppsIcon />
-  },
-  {
-    name: "Gloomhaven Tracker",
-    to: "/ght",
-    icon: <LinkIcon />
-  },
-  {
-    name: "Pokedex",
-    to: "/pokedex",
-    icon: <LinkIcon />
   }
 ];
 
@@ -70,6 +65,14 @@ const LinkDrawer = ({ handleDrawerToggle, mobileOpen }) => {
       <div className={classes.drawerHeader}>
         <IconButton onClick={handleDrawerToggle}>
           <ChevronLeftIcon />
+        </IconButton>
+      </div>
+      <div className={classes.drawerHeaderIcons}>
+        <IconButton href="https://www.github.com/WonderGinger">
+          <GithubIcon />
+        </IconButton>
+        <IconButton href="https://www.linkedin.com/in/brandt-willems">
+          <LinkedInIcon />
         </IconButton>
       </div>
       <List className={classes.drawerContent}>
