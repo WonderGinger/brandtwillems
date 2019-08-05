@@ -6,6 +6,7 @@ import homepageMedia from "../content/static/homepage.jpg";
 import gloomhavenMedia from "../content/static/ght.jpg";
 import pokedexMedia from "../content/static/pokedex.jpg";
 import kanbanMedia from "../content/static/kanban.jpg";
+import tttMedia from '../content/static/tictactoe.jpg';
 
 const projects = [
   {
@@ -38,6 +39,13 @@ const projects = [
       "A Kanban app example that I made to practice for interviews.",
     image: kanbanMedia,
     to: "/kanban",
+  },
+  {
+    name: "Tic Tac Toe",
+    description:
+      "A Tic Tac Toe game with time travelling capabilities",
+    image: tttMedia,
+    to: "/tictactoe"
   }
 ];
 

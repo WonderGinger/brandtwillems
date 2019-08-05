@@ -1,10 +1,8 @@
 import React from 'react';
-import Square from "./Square";
-import { Paper } from "@material-ui/core";
+import { Paper, Button } from "@material-ui/core";
 
-const Board = ({ classes, squares, onClick }) => {
+const Board = ({ classes, squares, onClick, onReset }) => {
   const renderSquare = i => {
-    console.log(i, squares[i]);
     return <Square classes={classes} value={squares[i]} onClick={() => onClick(i)}/>;
   };
 
@@ -25,8 +23,17 @@ const Board = ({ classes, squares, onClick }) => {
         {renderSquare(7)}
         {renderSquare(8)}
       </div>
+      <Button onClick={onReset} variant="contained" color="primary" fullWidth>Reset</Button>
     </Paper>
   )
 }
+
+const Square = ({ classes, value, onClick }) => {
+  return (
+    <Button variant="outlined" onClick={onClick} className={classes.square}>
+      {value}
+    </Button>
+  );
+};
 
 export default Board
