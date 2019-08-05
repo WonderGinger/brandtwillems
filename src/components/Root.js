@@ -12,6 +12,7 @@ import ProjectsPage from "../pages/projects";
 import GloomhavenTrackerPage from "../pages/ght";
 import Pokedex from "../pages/pokedex";
 import Kanban from "../pages/kanban";
+import TicTacToe from "../pages/tictactoe";
 import NotFound from "../pages/404";
 
 const Root = () => {
@@ -24,6 +25,7 @@ const Root = () => {
         <Route path="/ght" component={GloomhavenTrackerPage} />
         <Route path="/pokedex" component={Pokedex} />
         <Route path="/kanban" component={Kanban} />
+        <Route path="/tictactoe" component={TicTacToe} />
         <Route component={NotFound} />
 
         <Redirect from="/newtab" to="/homepage" />
