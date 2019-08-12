@@ -65,18 +65,23 @@ const useStyles = makeStyles(theme => ({
   },
   column: {
     backgroundColor: theme.palette.primary.main,
+    display: "flex",
+    flexDirection: "column",
     flexGrow: 1,
     margin: 10,
     textAlign: "center",
-    width: '32%',
   },
   columnName: {
-    textAlign: "center",
-    padding: 5,
+    fontSize: 24,
+    padding: 4
   },
   item: {
     wordWrap: "break-word",
     padding: 5,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginBottom: 4
   },
   button: {
     width: 20,

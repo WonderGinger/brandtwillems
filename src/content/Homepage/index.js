@@ -1,82 +1,74 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import { Grid, Container } from "@material-ui/core/";
 import Cookies from "js-cookie";
 import Item from "./components/Bookmark";
 import BookmarkAddButton from "./components/BookmarkAddButton";
-import items from "../static/default_bookmarks.json";
+import defaultItems from "../static/default_bookmarks.json";
 
-export default class ItemContainer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      items: [...items.bookmarks]
+const ItemContainer = () => {
+  const [items, setItems] = useState([]);
+  useEffect(() => {
+    const bookmarks = defaultItems.bookmarks;
+    let items = getBookmarkCookie();
+    if (!items) items = bookmarks;
+    setItems([...items]);
+    return () => {
+      setBookmarkCookie(items);
     };
-  }
+  }, []);
 
-  componentDidMount() {
-    const items = getBookmarkCookie();
-    if (items) {
-      this.setState({ items: items });
-    }
-  }
-
-  handleAddBookmark = (href, icon) => {
+  const handleAddBookmark = (href, icon) => {
     if (!validURL(href)) {
       if (href === "reset") {
-        this.setState({ items: items.bookmarks });
-        Cookies.remove("bookmarks", { path: "" });
+        setItems(defaultItems.bookmarks);
       }
       return;
-    };
+    }
     if (!validURL(icon))
       icon = `https://www.google.com/s2/favicons?domain=${href}`;
     const newItems = [
-      ...this.state.items,
+      ...items,
       {
         href,
         icon
       }
     ];
-    this.setState({
-      items: newItems
-    });
+    setItems(newItems);
     setBookmarkCookie(newItems);
   };
 
-  handleDeleteBookmark = i => {
-    const newItems = this.state.items.slice();
+  const handleDeleteBookmark = i => {
+    const newItems = items.slice();
     newItems.splice(i, 1);
-    this.setState({
-      items: newItems
-    });
+    setItems(newItems);
     setBookmarkCookie(newItems);
   };
 
-  render() {
-    return (
-      <Container fixed>
-        <Grid container alignItems="flex-end" justify="flex-start" spacing={2}>
-          {this.state.items.map((item, itemIndex) => (
-            <Grid key={itemIndex} item xs={12} sm={6} md={4} lg={3}>
-              <Item
-                itemIndex={itemIndex}
-                icon={item.icon}
-                href={item.href}
-                onDelete={() => this.handleDeleteBookmark(itemIndex)}
-              />
-            </Grid>
-          ))}
-
-          <Grid item xs={12} sm={6} md={4} lg={3}>
-            <BookmarkAddButton
-              onClick={(href, icon) => this.handleAddBookmark(href, icon)}
+  return (
+    <Container fixed>
+      <Grid container alignItems="flex-end" justify="flex-start" spacing={2}>
+        {items.map((item, itemIndex) => (
+          <Grid key={itemIndex} item xs={12} sm={6} md={4} lg={3}>
+            <Item
+              itemIndex={itemIndex}
+              icon={item.icon}
+              href={item.href}
+              onDelete={() => handleDeleteBookmark(itemIndex)}
             />
           </Grid>
+        ))}
+
+        <Grid item xs={12} sm={6} md={4} lg={3}>
+          <BookmarkAddButton
+            onClick={(href, icon) => handleAddBookmark(href, icon)}
+          />
         </Grid>
-      </Container>
-    );
-  }
-}
+      </Grid>
+    </Container>
+  );
+};
+
+export default ItemContainer;
 
 const setBookmarkCookie = items => {
   Cookies.set("bookmarks", items.map(item => JSON.stringify(item)).toString(), {

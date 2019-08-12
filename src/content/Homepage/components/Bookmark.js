@@ -36,15 +36,16 @@ const Item = ({ href, icon, add, onAdd, onDelete }) => {
       </Button>
     )
   }
+  if (!href.includes("http")) href = `http://${href}`;
   return (
-      <Paper className={classes.root}>
-        <IconButton aria-label="Delete" className={classes.deleteIcon} onClick={onDelete}>
-          <DeleteIcon fontSize="small"/>
-        </IconButton>
-        <a href={href}>
-          <img className={classes.icon} src={icon} alt={href} />
-        </a>
-      </Paper>
+    <Paper className={classes.root}>
+      <IconButton aria-label="Delete" className={classes.deleteIcon} onClick={onDelete}>
+        <DeleteIcon fontSize="small"/>
+      </IconButton>
+      <a href={href}>
+        <img className={classes.icon} src={icon} alt={href} />
+      </a>
+    </Paper>
   );
 };
 
