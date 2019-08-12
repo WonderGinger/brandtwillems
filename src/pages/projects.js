@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container, Grid } from "@material-ui/core";
 import Layout from "../components/Layout";
 import ProjectCard from "../components/ProjectCard";
 import homepageMedia from "../content/static/homepage.jpg";
-import gloomhavenMedia from "../content/static/ght.jpg";
 import pokedexMedia from "../content/static/pokedex.jpg";
 import kanbanMedia from "../content/static/kanban.jpg";
 import tttMedia from '../content/static/tictactoe.jpg';
@@ -20,18 +19,11 @@ const projects = [
   {
     name: "Pokedex",
     description:
-      "A quick pokedex app that lists every Pokemon, and allows search. I used this project to learn the basics of Redux and implement a working and beautiful Pokedex app",
+      "A quick pokedex app that lists every Pokemon, and allows search. I used this project to learn the basics of Redux and implementing text searching algorithms",
     image: pokedexMedia,
     to: "/pokedex",
     github:
       "https://github.com/WonderGinger/brandtwillems/tree/master/src/content/Pokedex"
-  },
-  {
-    name: "Gloomhaven Tracker",
-    description:
-      "I play the board game Gloomhaven with a group of 5 friends. During the campaign, only 4 players can go on each adventure, so I made an app to automate the process of deciding who's sitting the next one out",
-    image: gloomhavenMedia,
-    to: "/ght",
   },
   {
     name: "Kanban",
@@ -50,6 +42,9 @@ const projects = [
 ];
 
 const Projects = props => {
+  useEffect(() => {
+    document.title = "Projects";
+  });
   return (
     <Layout>
       <Container fixed >

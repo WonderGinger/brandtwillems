@@ -30,7 +30,7 @@ const ProjectCard = props => {
   return (
     <Card className={classes.card} key={project.name}>
       <CardActionArea>
-          <UnstyledLink to={project.to}>
+        <UnstyledLink to={project.to}>
           <CardMedia
             className={classes.media}
             image={project.image}
