@@ -2,47 +2,39 @@ import React from "react";
 
 const Column = ({
   classes,
+  color,
   column,
-  onAdd,
-  onMoveLeft,
-  onMoveRight,
+  onAddCard,
   canMoveLeft,
-  canMoveRight
+  canMoveRight,
+  onMoveLeft,
+  onMoveRight
 }) => {
   return (
     <div className={classes.column}>
-      <p
+      <div
         className={classes.name}
-        style={{ backgroundColor: column.color }}
+        style={{ color: "white", backgroundColor: color }}
       >
         {column.name}
-      </p>
+      </div>
       {column.cards.map((card, cardIndex) => (
         <Card
-          key={cardIndex}
-          classes={classes}
           card={card}
-          onMoveLeft={onMoveLeft}
-          onMoveRight={onMoveRight}
           canMoveLeft={canMoveLeft}
           canMoveRight={canMoveRight}
+          onMoveLeft={() => onMoveLeft(cardIndex)}
+          onMoveRight={() => onMoveRight(cardIndex)}
+          classes={classes}
+          key={cardIndex}
         />
       ))}
-      <button onClick={onAdd}>
-        Add a card
-      </button>
+      <button onClick={onAddCard}>+ Add a card</button>
     </div>
   );
 };
 
-const Card = ({
-  classes,
-  card,
-  onMoveLeft,
-  onMoveRight,
-  canMoveLeft,
-  canMoveRight
-}) => {
+const Card = ({ classes, card, canMoveLeft, canMoveRight, onMoveLeft, onMoveRight }) => {
   return (
     <div className={classes.card}>
       {canMoveLeft && <button onClick={onMoveLeft}>{"<"}</button>}

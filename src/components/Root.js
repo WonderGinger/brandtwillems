@@ -13,6 +13,7 @@ import Pokedex from "../pages/pokedex";
 import Kanban from "../pages/kanban";
 import TicTacToe from "../pages/tictactoe";
 import Calculator from "../pages/calculator";
+import TripleByte from "../pages/triplebyte";
 import NotFound from "../pages/404";
 
 const Root = () => {
@@ -27,6 +28,7 @@ const Root = () => {
         <Route path="/kanban" component={Kanban} />
         <Route path="/tictactoe" component={TicTacToe} />
         <Route path="/calculator" component={Calculator} />
+        <Route path="/triplebyte" component={TripleByte} />
         <Route component={NotFound} />
 
         <Redirect from="/newtab" to="/homepage" />

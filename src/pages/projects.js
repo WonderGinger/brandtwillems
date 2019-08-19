@@ -6,6 +6,7 @@ import homepageMedia from "../content/static/homepage.jpg";
 import pokedexMedia from "../content/static/pokedex.jpg";
 import kanbanMedia from "../content/static/kanban.jpg";
 import tttMedia from '../content/static/tictactoe.jpg';
+import calcMedia from '../content/static/calculator.jpg';
 
 const projects = [
   {
@@ -38,6 +39,13 @@ const projects = [
       "A Tic Tac Toe game with time travelling capabilities",
     image: tttMedia,
     to: "/tictactoe"
+  },
+  {
+    name: "Calculator",
+    description:
+      "A material theme calculator",
+      image: calcMedia,
+      to: "/calculator"
   }
 ];
 
