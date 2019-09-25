@@ -1,24 +1,19 @@
 import React, { useEffect } from "react";
-import { Typography, withStyles } from "@material-ui/core";
 import Layout from "../components/Layout";
+import Skills from "../components/Skills";
+import Container from "../components/Container";
 
-const styles = theme => ({
-  text: {
-    color: "white",
-    textAlign: "center"
-  }
-});
 const IndexPage = ({ classes }) => {
   useEffect(() => {
-    document.title = "Home";
+    document.title = "Brandt Willems";
   });
   return (
     <Layout>
-      <Typography variant="h4" className={classes.text}>
-        Personal website for Brandt Willems
-      </Typography>
+      <Container paddingTop>
+        <Skills />
+      </Container>
     </Layout>
   );
 };
 
-export default withStyles(styles)(IndexPage);
+export default IndexPage;

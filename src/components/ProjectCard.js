@@ -27,22 +27,23 @@ const useStyles = makeStyles(theme => ({
 const ProjectCard = props => {
   const classes = useStyles();
   const { project } = props;
+
   return (
     <Card className={classes.card} key={project.name}>
       <CardActionArea>
-        <UnstyledLink to={project.to}>
+        <UnstyledLink to={project.to} outside={project.outside}>
           <CardMedia
             className={classes.media}
             image={project.image}
             title="Homepage"
           />
           <CardContent>
-              <Typography gutterBottom variant="h5" component="h2">
-                {project.name}
-              </Typography>
-              <Typography variant="body2" color="textSecondary" component="p">
-                {project.description}
-              </Typography>
+            <Typography gutterBottom variant="h5" component="h2">
+              {project.name}
+            </Typography>
+            <Typography variant="body2" color="textSecondary" component="p">
+              {project.description}
+            </Typography>
           </CardContent>
         </UnstyledLink>
       </CardActionArea>

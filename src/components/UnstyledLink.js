@@ -13,10 +13,16 @@ const styles = theme=> ({
   }
 });
 
-const UnstyledLink = ({ children, classes, to }) => (
-  <Link className={classes.link} to={to}>
-    {children}
-  </Link>
-);
+const UnstyledLink = ({ children, classes, to, outside }) =>{ 
+  if (outside) return (
+    <a className={classes.link} href={to}>
+      {children}
+    </a>
+  )
+  return (
+    <Link className={classes.link} to={to}>
+      {children}
+    </Link>
+)};
 
 export default withStyles(styles)(UnstyledLink);
