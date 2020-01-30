@@ -2,7 +2,7 @@ import React from 'react';
 import Calculator from '../content/calculator';
 import Layout from '../components/Layout';
 
-const ght = () => {
+const calculator = () => {
   return (
     <Layout>
       <Calculator/>
@@ -10,4 +10,4 @@ const ght = () => {
   )
 }
 
-export default ght
+export default calculator
