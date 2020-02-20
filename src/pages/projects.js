@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Container, Grid } from "@material-ui/core";
 import Layout from "../components/Layout";
 import ProjectCard from "../components/ProjectCard";
-import algorithmsMedia from "../content/static/media/algorithms.jpg"
+import algorithmsMedia from "../content/static/media/algorithms.jpg";
 import homepageMedia from "../content/static/media/homepage.jpg";
 import pokedexMedia from "../content/static/media/pokedex.jpg";
 import kanbanMedia from "../content/static/media/kanban.jpg";
@@ -44,7 +44,8 @@ const projects = [
       "To practice simple and complex algorithms, I code them and visualize them in some way. Functions as a practice log and potentially fun tool",
     image: algorithmsMedia,
     to: "/alg",
-    github: "https://github.com/WonderGinger/brandtwillems/tree/master/src/content/algorithms"
+    github:
+      "https://github.com/WonderGinger/brandtwillems/tree/master/src/content/algorithms"
   },
   {
     name: "Homepage",
