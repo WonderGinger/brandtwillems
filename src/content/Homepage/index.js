@@ -21,6 +21,8 @@ const ItemContainer = () => {
     if (!validURL(href)) {
       if (href === "reset") {
         setItems(defaultItems.bookmarks);
+        setBookmarkCookie(defaultItems.bookmarks);
+
       }
       return;
     }
