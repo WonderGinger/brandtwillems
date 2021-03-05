@@ -77,12 +77,6 @@ const projects = [
     to: "/tictactoe"
   },
   {
-    name: "Calculator",
-    description: "A material theme calculator",
-    image: calcMedia,
-    to: "/calculator"
-  },
-  {
     name: "Flava",
     description:
       "Using machine learning, me and a team created a model to predict a training plan to help the user achieve running goals",

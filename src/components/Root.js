@@ -12,7 +12,6 @@ import GloomhavenTrackerPage from "../pages/ght";
 import Pokedex from "../pages/pokedex";
 import Kanban from "../pages/kanban";
 import TicTacToe from "../pages/tictactoe";
-import Calculator from "../pages/calculator";
 import TripleByte from "../pages/triplebyte";
 import Algorithms from "../pages/algorithms";
 import NotFound from "../pages/404";
@@ -28,7 +27,6 @@ const Root = () => {
         <Route path="/pokedex" component={Pokedex} />
         <Route path="/kanban" component={Kanban} />
         <Route path="/tictactoe" component={TicTacToe} />
-        <Route path="/calculator" component={Calculator} />
         <Route path="/triplebyte" component={TripleByte} />
         <Route path="/alg" component={Algorithms} />
         <Route component={NotFound} />
